@@ -4,7 +4,7 @@
    $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
    // configurer le mode erreur PDO pour générer des exceptions :
    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   echo "<p class='alert alert-success '>Vous etes conectée avec succès à la base de données<p>";
+   echo "<p class='alert alert-success '>Vous êtes connectée avec succès à la base de données<p>";
 
    // // Vérifier la présence du paramètre "disc_id"
    // if (isset($_GET["disc_id"])) {
