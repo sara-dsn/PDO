@@ -1,26 +1,10 @@
 <?php 
-   
-   // Connexion à la base de données
-   $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
-   // configurer le mode erreur PDO pour générer des exceptions :
-   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-   echo "<p class='alert alert-success '>Vous etes conectée avec succès à la base de données<p>";
 
-   // // Vérifier la présence du paramètre "disc_id"
-   // if (isset($_GET["disc_id"])) {
-   //     echo "ça existe";
-
-  // Exécution d'une requête SQL
 $id=$_GET['id'];
   $det = $db->prepare("SELECT * FROM disc INNER JOIN artist ON disc.artist_id = artist.artist_id WHERE disc_id= $id ");
   $det->execute();
   $detail = $det->fetchAll(PDO::FETCH_OBJ);
 
-
-  
-  
-   // }
- 
 ?>
 
 
@@ -73,8 +57,8 @@ $id=$_GET['id'];
 </div>
 <?php }; ?>
     <div class="row w-100 d-flex justify-content-center">
-        <button type="delete" href="index.php?page=delete_script" class=" btn mr-4 rounded btn-dark text-light " >Supprimer</button>
-        <button type="submit" href="index.php?page=details&id=<?=$disc->disc_id?>" class="btn ml-4 rounded btn-dark text-light ">Retour</button>
+        <button type="delete" href="delete_script.php" class=" btn mr-4 rounded btn-dark text-light " >Supprimer</button>
+        <button type="submit" href="index.php?page=liste" class="btn ml-4 rounded btn-dark text-light ">Retour</button>
     </div>
 </form>
 </div>
