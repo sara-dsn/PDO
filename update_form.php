@@ -52,9 +52,9 @@ $id=$_GET['id'];
 
 </div>
 <?php };?>
-    <div class="row w-100 d-flex justify-content-center">
-        <button type="submit"  href="index.php?page=add_script&id=<?=$disc->disc_id?>" class="mr-4 rounded btn-dark text-light btn-lg" >Ajouter</button>
-        <button type="submit" href="index.php?page=liste" class="ml-4 rounded btn-dark text-light btn-lg">Retour</button>
+    <div class="row w-100 d-flex justify-content-center mb-4">
+        <button type="submit"  href="index.php?page=add_script&id=<?=$disc->disc_id?>" class="mr-4 rounded btn-dark text-light btn " >Ajouter</button>
+        <button type="submit" href="index.php?page=liste" class="ml-4 rounded btn-dark text-light btn">Retour</button>
     </div>
 </form>
 </div>
