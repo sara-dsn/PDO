@@ -1,9 +1,11 @@
 <?php 
    
+   
    // Connexion à la base de données
    $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
    // configurer le mode erreur PDO pour générer des exceptions :
    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
    echo "<p class='alert alert-success '>Vous êtes connectée avec succès à la base de données<p>";
 
    // // Vérifier la présence du paramètre "disc_id"
@@ -21,7 +23,10 @@
    // }
  
 ?>
-    <h1 class="font-weight-bold text-center">Liste des disques</h1>
+    <div class="row d-flex justify-content-between">
+      <h1 class="font-weight-bold text-center ml-4">Liste des disques</h1>
+    <a type="submit" href="index.php?page=add_form" class="btn btn-dark text-light mr-4">Ajouter</a>
+    </div>
     <div class="d-flex justify-content-center ">
     <div class="row col-8  "> 
     <?php

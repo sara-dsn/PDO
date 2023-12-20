@@ -1,6 +1,7 @@
 
 <?php 
 
+
 $id=$_GET['id'];
   $det = $db->prepare("SELECT * FROM disc INNER JOIN artist ON disc.artist_id = artist.artist_id WHERE disc_id= $id ");
   $det->execute();
@@ -53,8 +54,8 @@ $id=$_GET['id'];
 </div>
 <?php };?>
     <div class="row w-100 d-flex justify-content-center mb-4">
-        <button type="submit"  href="index.php?page=add_script&id=<?=$disc->disc_id?>" class="mr-4 rounded btn-dark text-light btn " >Ajouter</button>
-        <button type="submit" href="index.php?page=liste" class="ml-4 rounded btn-dark text-light btn">Retour</button>
+        <a type="submit"  href="index.php?page=add_script&id=<?=$disc->disc_id?>" class="mr-4 rounded btn-dark text-light btn " >Ajouter</a>
+        <a type="submit" href="index.php?page=liste" class="ml-4 rounded btn-dark text-light btn">Retour</a>
     </div>
 </form>
 </div>
