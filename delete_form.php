@@ -11,7 +11,7 @@ $id=$_GET['id'];
 <div class="text-center  " ><h1 class="font-weight-bold">Supprimer un vinyle</h1> </div>
 <div class=" d-flex justify-content-center ">
     <div class="col-8">
-<form action="add_script.php" methode="POST" class="w-100 mt-4">
+<form action="delete_script.php" methode="GET" class="w-100 mt-4">
     <div class="form-group w-100">
         <div class="col-12">
         <?php
@@ -45,20 +45,21 @@ $id=$_GET['id'];
         <input class=" form-control" type="text" value="<?= $disc->disc_price?> "class="w-75"><br>
         </div>
     </div>
-    <div class="form-group w-100">
-    <div class="col-12">
+   
+    <div class="col-12 form-group w-100">
         <label type="picture" class="mr-4" ><h5>Picture</h5></label>
     
         <div class="col-4 mb-4">
             <img src="img/<?=$disc->disc_picture?>" alt="<?=$disc->disc_title?>" class="img-fluid rounded">
-            </div>
         </div>
+       
+        
 
-</div>
+    </div>
 <?php }; ?>
     <div class="row w-100 d-flex justify-content-center">
-        <button type="delete" href="delete_script.php" class=" btn mr-4 rounded btn-dark text-light " >Supprimer</button>
-        <button type="submit" href="index.php?page=liste" class="btn ml-4 rounded btn-dark text-light ">Retour</button>
+    <button type="submit"class="ml-2 btn btn-dark text-light rounded" value="<?=$disc->disc_id?>" name="supprimer"  href="delete_script.php?&id=<?=$disc->disc_id?>"> Supprimer</button>
+        <input type="submit" href="index.php?page=liste" class="btn ml-4 rounded btn-dark text-light " value="Retour">
     </div>
 </form>
 </div>

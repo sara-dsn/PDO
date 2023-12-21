@@ -12,7 +12,7 @@ $id=$_GET['id'];
 <div class="text-center  " ><h1  class="font-weight-bold">Modifier un vinyle</h1> </div>
 <div class=" d-flex justify-content-center ">
     <div class="col-8">
-<form action="add_script.php" methode="POST" class="w-100 mt-4">
+<form action="update_script.php" methode="POST" class="w-100 mt-4">
     <div class="form-group w-100">
         <div class="col-12">
             <?php  foreach($detail as $disc){ ?>

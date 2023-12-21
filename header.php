@@ -10,7 +10,7 @@
 <body>
   <div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-  <a class="navbar-brand" href="#">Record</a>
+  <a class="navbar-brand" href="index.php?page=liste">Record</a>
   
  
   </div>

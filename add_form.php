@@ -22,36 +22,36 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     <div class="form-group w-100 row">
         <div class="col-6">
         <label for="title"  ><h5>Title</h5></label><br>
-        <input name="title" class=" form-control" type="text" class="col-12" placeholder="Enter Title"><br>
+        <input name="title" class=" form-control" type="text"  placeholder="Enter Title"><br>
         </div>
         <div class="col-6">
-        <label for="artist"><h5>Artist</h5></label><br>
-        <select class="col-12" size="1">
-        <option value="artiste"   id="0">Veuillez choisir un artiste</option>
-        <?php foreach($tableau as $artist){ ?>
-        <option value="<?=$artist->artist_name?>"   id="<?=$artist->artist_id?>"><?=$artist->artist_name?></option>
-        <?php };?>
-        </select>
+            <label for="artist"><h5>Artist</h5></label><br>
+            <select name="artist" class="col-12"  size="1">
+                <option   id="0">Veuillez choisir un artiste</option>
+                <?php foreach($tableau as $artist){ ?>
+                    <option value="<?=$artist->artist_id?>" id="<?=$artist->artist_id?>"><?=$artist->artist_name?></option>
+                <?php };?>
+            </select>
         </div>
     </div>
     <div class="form-group w-100 row">
     <div class="col-6">
         <label for="year"><h5>Year</h5></label><br>
-        <input name="year" class=" form-control" type="text" class="col-12 "  placeholder="Enter Year"><br>
+        <input name="year" class=" form-control" type="text"  placeholder="Enter Year"><br>
         </div>
         <div class="col-6">
         <label for="genre"  ><h5>Genre</h5></label><br>
-        <input name="genre" class=" form-control" type="text" class="col-12" placeholder="Enter genre (Rock, Pop, Prog ...)"><br>
+        <input name="genre" class=" form-control" type="text"  placeholder="Enter genre (Rock, Pop, Prog ...)"><br>
         </div>
     </div>
     <div class="form-groupw-100 row">
     <div class="col-6">
         <label for="label"><h5>Label</h5></label><br>
-        <input name="label" class=" form-control" type="text" class="col-12"  placeholder=" Enter Lable(EMI, Warner, PolyGram, Univers sale ...)"><br>
+        <input name="label" class=" form-control" type="text"   placeholder=" Enter Lable(EMI, Warner, PolyGram, Univers sale ...)"><br>
         </div>
         <div class="col-6 mb-4">
         <label for="price"><h5>Price</h5></label><br>
-        <input name="price" class=" form-control" type="text" class="col-12"><br>
+        <input name="price" class=" form-control" type="text" ><br>
         </div>
     </div>
     <div class="form-groupw-100 row">
@@ -61,8 +61,8 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         </div>
     </div>
     <div class="row w-100 d-flex justify-content-center">
-        <input type="submit" name="envoyer" href="add_script.php"  class="btn mr-4 rounded btn-dark text-light " value="Envoyer"></input>
-        <input type="delete" href="index.php?page=liste" class="btn ml-4 rounded btn-dark text-light ">Retour</a>
+        <input type="submit" name="envoyer" href="add_script.php"  class="btn mr-4 rounded btn-dark text-light " value="Envoyer">
+        <input value="Retour" type="submit" href="index.php?page=liste" class="btn ml-4 rounded btn-dark text-light ">
     </div>
 </form>
 </div>

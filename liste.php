@@ -16,7 +16,7 @@
   $requete = $db->prepare("SELECT * FROM disc");
   $requete->execute();
   $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
-
+  $nrb=0;
 
   
   
@@ -24,11 +24,14 @@
  
 ?>
     <div class="row d-flex justify-content-between">
-      <h1 class="font-weight-bold text-center ml-4">Liste des disques</h1>
-    <a type="submit" href="index.php?page=add_form" class="btn btn-dark text-light mr-4">Ajouter</a>
+    <?php  foreach($tableau as $disc){ 
+      $nbr= $nbr+1;};?>
+      <h1 class="font-weight-bold text-center ml-4">Liste des disques ("<?php echo"$nbr"?>")</h1>
+    <a type="submit" href="index.php?page=add_form" class="btn btn-dark text-light mr-4" >Ajouter</a>
+
     </div>
     <div class="d-flex justify-content-center ">
-    <div class="row col-8  "> 
+    <div class="row col-8 "> 
     <?php
 if ($tableau){ 
     foreach ($tableau as $disc){ 
