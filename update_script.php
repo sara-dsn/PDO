@@ -126,6 +126,7 @@ $db->beginTransaction();
         $query->bindValue(':id', $id,PDO::PARAM_INT);
         $query->bindValue(':title', $title, PDO::PARAM_STR);
         $query->bindValue(':year', $year,PDO::PARAM_INT);
+        // if ( isset( $picture=$_GET["picture"];)){ };
         $query->bindValue(':picture', $_FILES['picture']['name'], PDO::PARAM_STR);
         $query->bindValue(':label', $label, PDO::PARAM_STR);
         $query->bindValue(':genre', $genre,PDO::PARAM_STR);
