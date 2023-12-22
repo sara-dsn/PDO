@@ -1,7 +1,12 @@
 <?php 
 session_start();
-
+echo"<br><br>Request:<br><br>";
+var_dump($_REQUEST);
+echo"<br><br>Post:<br><br>";
 var_dump($_POST);
+echo"<br><br>Get :<br><br>";
+var_dump($_GET);
+echo"<br><br><br><br>";
 // echo"a";
 // if(isset($_POST["envoyer"])){
 
@@ -82,26 +87,33 @@ var_dump($_POST);
 //     echo "Veuilllez remplir correctement ce formulaire s.v.p";
 // // }
 try {
-    if(isset($_POST["envoyer"])){ 
-var_dump($_REQUEST);
+    if(isset($_GET["id"])){ 
+
+echo"tryyyy";
     $db=new PDO('mysql:host=localhost;charset=utf8;dbname=record','admin','dosana');
 
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
 $db->beginTransaction();
     // Prise en compte du fichier uploadé
-    $requete = $db->prepare("SELECT * FROM disc");
-    $requete->execute();
-    $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
+    // $requete = $db->prepare("SELECT * FROM disc");
+    // $requete->execute();
+    // $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
   
-
-    $title=$_POST["title"];
-    $id = $_POST["artist"];
-    $year=$_POST["year"];
-    $genre=$_POST["genre"];
-    $label=$_POST["label"];
-    $price = $_POST["price"];
-   
+    $id=$_GET["id"];
+    $title=$_GET["title"];
+    $nom = $_GET["artist"];
+    $year=$_GET["year"];
+    $picture=$_GET["picture"];
+    // $picture=$_FILES['picture']['name'];
+    $genre=$_GET["genre"];
+    $label=$_GET["label"];
+    $price = $_GET["price"];
+  
+    // if (isset($_FILES['picture'])) {
+    //     // Récupération du fichier téléchargé
+    //     $uploadFile = $_FILES['picture']['name']; };
+    //     var_dump($uploadFile);
   
 
     // $uploadFile = basename($_FILES['picture']['name']);
@@ -109,8 +121,9 @@ $db->beginTransaction();
     // if (move_uploaded_file($_FILES['picture']['tmp_name'], $uploadFile)) {
       
         // Enregistrement des données dans la base
-        $query = $db->prepare("UPDATE `disc` SET `disc_id`='',`disc_title`=':title',`disc_year`=':year',`disc_picture`=':picture',`disc_label`='[value-5]',`disc_genre`=':genre',`disc_price`=':price',`artist_id`=':id' ");
+        $query = $db->prepare("UPDATE `disc` SET `disc_id`=':id',`disc_title`=':title',`disc_year`=':year',`disc_picture`=':picture',`disc_label`='[value-5]',`disc_genre`=':genre',`disc_price`=':price',`artist_id`=':nom' ");
         
+        $query->bindValue(':id', $id,PDO::PARAM_INT);
         $query->bindValue(':title', $title, PDO::PARAM_STR);
         $query->bindValue(':year', $year,PDO::PARAM_INT);
         $query->bindValue(':picture', $_FILES['picture']['name'], PDO::PARAM_STR);
@@ -118,7 +131,7 @@ $db->beginTransaction();
         $query->bindValue(':genre', $genre,PDO::PARAM_STR);
         $query->bindParam(':price', $price, PDO::PARAM_STR);
         // $query->bindValue(':price', $price);
-        $query->bindValue(':id', $id,PDO::PARAM_INT);
+        $query->bindValue(':nom', $nom,PDO::PARAM_STR);
         echo"<br>voici l'id: <br>";
         echo("->  ".$id."<br>");
     //         $query->bindParam(':title', $title, PDO::PARAM_STR);
