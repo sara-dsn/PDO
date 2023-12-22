@@ -16,7 +16,7 @@ session_start();
 // </div></form></div>
 // </div></div>
 // </div></div>';
-var_dump($_REQUEST);
+
 try {
     if(isset($_GET["supprimer"])){ 
 
@@ -27,12 +27,13 @@ try {
 $db->beginTransaction();
     // Prise en compte du fichier uploadé
     $id = $_GET["supprimer"];
-    $requete = $db->prepare("DELETE FROM `disc` WHERE `artist_id`= `:id`");
-  
+    
+    $requete = $db->prepare("DELETE FROM `disc` WHERE `artist_id`= :id");
+    var_dump($_REQUEST);
     // $tableau =bindParam(':id', $id,PDO::PARAM_INT);
-    $requete =bindParam(':id', $id,PDO::PARAM_INT);
-    $requete->execute();
-
+        $requete->execute(array(':id' => $id));
+    // $requete =bindParam(':id', $id,PDO::PARAM_INT);
+    // $requete->execute();
 
   
         
