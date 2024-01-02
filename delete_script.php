@@ -25,15 +25,20 @@ try {
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
 $db->beginTransaction();
-    // Prise en compte du fichier uploadé
+  
+$requete = $db->prepare("SELECT * FROM disc");
+$requete->execute();
+$tableau = $requete->fetchAll(PDO::FETCH_OBJ);
+
+
     $id = $_GET["supprimer"];
     
-    $requete = $db->prepare("DELETE FROM `disc` WHERE `artist_id`= :id");
-    var_dump($_REQUEST);
-    // $tableau =bindParam(':id', $id,PDO::PARAM_INT);
-        $requete->execute(array(':id' => $id));
-    // $requete =bindParam(':id', $id,PDO::PARAM_INT);
-    // $requete->execute();
+    $query = $db->prepare("DELETE FROM `disc` WHERE `disc_id`= :id");
+    $query->bindValue(':id' , $id, PDO::PARAM_INT);
+  $query->execute();
+
+  $db->commit();
+
 
   
         
@@ -44,8 +49,8 @@ $db->beginTransaction();
       
 
         echo "Reussi";
-        // header("Location: index.php?page=liste");
-        // exit;
+        header("Location: index.php?page=liste");
+        exit;
     } else {
         echo "Erreur ";
     }
