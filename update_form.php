@@ -12,7 +12,7 @@ $id=$_GET['id'];
 <div class="text-center  " ><h1  class="font-weight-bold">Modifier un vinyle</h1> </div>
 <div class=" d-flex justify-content-center ">
     <div class="col-8">
-        <form action="update_script.php" methode="post" enctype="multipart/form-data" class="w-100 mt-4">
+        <form action="update_script.php" method="post" enctype="multipart/form-data" class="w-100 mt-4">
             <div class="form-group w-100">
                 <div class="col-12">
                     <?php  foreach($detail as $disc){ ?>
@@ -21,7 +21,7 @@ $id=$_GET['id'];
                 </div>
                 <div class="col-12">
                     <label for="artist" ><h5>Artist</h5></label><br>
-                    <input name="artist" class=" form-control" value="<?=$disc->artist_id?>" class="w-75" ></input>
+                    <input name="artist" class=" form-control" value="<?=$disc->artist_name?>" class="w-75" ></input>
                 </div>
             </div>
             <div class="form-group  w-100">
@@ -46,8 +46,8 @@ $id=$_GET['id'];
             </div>
             <div class="form-group w-100">
                 <div class="col-12">
-                    <label type="picture" class="mr-4" ><h5>Picture</h5></label>
-                    <input name="picture" type="file" value="<?=$disc->disc_picture?>" class="w-75 mb-4"><br>
+                    <label for="img" class="mr-4" ><h5>Picture</h5></label>
+                    <input name="img" type="file"  value="<?=$disc->disc_picture?>" class="col-11 mb-4"><br>
                     <img src="img/<?=$disc->disc_picture?>" class="col-4"alt="<?=$disc->disc_title?>">
                 </div>
             </div>
