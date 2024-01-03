@@ -28,7 +28,6 @@ try
     $genre=$_POST["genre"];
     $label=$_POST["label"];
     $price = $_POST["price"];
-    
 
 
 
@@ -39,26 +38,31 @@ try
   echo " label :  $label <br><br>";
   echo " prix :  $price <br><br>";
   echo " année : $year<br><br>";
-  echo " année : $artist<br><br>";
+  echo " nom artiste : $artist<br><br>";
+
 
   
   $query = $db->prepare("UPDATE `disc` INNER JOIN  `artist` ON `disc`.`artist_id`=`artist`.`artist_id`   SET `disc`.`disc_title`=:title,`disc`.`disc_year`=:year,`disc`.`disc_picture`=:img,`disc`.`disc_label`=:label,`disc`.`disc_genre`=:genre,`disc`.`disc_price`=:price,`artist`.`artist_name`=:artist WHERE `disc`.`disc_id`=:id ");
 
-// Si envoie fichier , mise à jour de l'image aussi :
+// Par sécurité, on ne peut pas prédéfinir la valeur d'un fichier , donc :
+
+
+//  Sinon si un fichier est envoyé , je l'attribut à l'objet :
+if (isset($_FILES["img"]) && $_FILES["img"]["error"] == UPLOAD_ERR_OK && $_FILES["img"]["size"] > 0) {
   
-if ( isset($_FILES["img"])){ 
-       
-        $img=$_FILES["img"]['name'];
-        
-        $query->bindValue(':img', $_FILES["img"]['name'], PDO::PARAM_STR);  
-        echo " image : $img <br><br><br><br>";
-     }
-    //   Si il n'y a pas de fichier ,Requête mise à jour d'un objet :
-else { 
-    $img= $disc->disc_picture;
-        echo"$img";
-    $query->bindValue(':img', $img, PDO::PARAM_STR); 
-};
+    $img = $_FILES["img"]["name"];
+    $query->bindValue(':img', $img, PDO::PARAM_STR);
+   
+} 
+// Sinon j'attribut la valeur du name 'image' (input caché):
+else {
+            $img=$_POST['image'];
+    
+    $query->bindValue(':img', $img, PDO::PARAM_STR);  
+    echo " image1 : $img <br><br><br><br>";
+}
+   
+
  //  contenu FICHIER 
     echo"FILES:<br><br>";
     var_dump($_FILES);
