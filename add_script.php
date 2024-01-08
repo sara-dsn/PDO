@@ -23,7 +23,6 @@ $db->beginTransaction();
     $label=$_POST["label"];
     $price = intval($_POST["price"]);
     $year=intval($_POST["year"]);
-    $date= new DateTime("$year-01-01");
     $picture=$_FILES['picture']['name'];
    
   echo " <br><br> titre : $title <br><br>";
