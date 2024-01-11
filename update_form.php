@@ -49,12 +49,12 @@ $id=$_GET['id'];
                     <label for="img" class="mr-4" ><h5>Picture</h5></label> 
                     <input type="hidden" name="image"  value="<?=$disc->disc_picture?>" >
                     <input name="img" type="file"  value="<?=$disc->disc_picture?>" class="col-11 mb-4"><br>
-                    <img src="img/<?=$disc->disc_picture?>" class="col-4"alt="<?=$disc->disc_title?>">
+                    <img src="img/<?=$disc->disc_picture?>" class="col-4" alt="<?=$disc->disc_title?>">
                 </div>
             </div>
         <?php };?>
             <div class="row w-100 d-flex justify-content-center mb-4">
-                <button type="submit" class="ml-4 rounded btn-dark text-light btn" href="update_script.php" name="id" value="<?=$disc->disc_id?>" >Ajouter</button>
+                <button type="submit" class="ml-4 rounded btn-dark text-light btn" href="update_script.php" name="id" value="<?=$disc->disc_id?>" >Modifier</button>
                 <input type="submit" href="index.php" class="ml-4 rounded btn-dark text-light btn" value="Retour">
             </div>
         </form>
